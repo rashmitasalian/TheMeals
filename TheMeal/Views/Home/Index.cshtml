@@ -1,0 +1,41 @@
+﻿@model TheMeal.Models.MealsCollection
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="form-horizontal">
+
+    <br /><br />
+          <div class="form-group">
+              @using (Html.BeginForm("SearchByMealName", "Home", FormMethod.Get))
+              {
+                  <div class="container">
+                      <div class="form-group">
+                          <label>Search By Meal Name</label>
+                          @Html.TextBoxFor(x => x.singlemeal.strMeal, new { @class = "form-control" })
+                      </div>
+                      <div class="form-group mt-2">
+                          <button type="submit" class="btn btn-primary">Search</button>
+                      </div>
+                  </div><hr />
+              }
+              @using (Html.BeginForm("GetRecipeByIngredient", "Home", FormMethod.Get))
+              {
+                        <div class="container">
+                            <div class="form-group">
+                                <label>Search By Ingrdients Name</label>
+                                @Html.TextBoxFor(x => x.singlemeal.strIngredient1, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label>Exclude Ingrdients </label>
+                                @Html.TextBoxFor(x => x.singlemeal.strIngredient2, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group mt-2">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+                        </div>
+              }
+             
+          </div>
+</div> 

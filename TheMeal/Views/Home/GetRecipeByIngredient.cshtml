@@ -1,0 +1,48 @@
+﻿@using System.Data
+@model DataSet
+@{
+    ViewBag.Title = "Get Recipe By Ingredient";
+}
+
+<h2>Get Recipe By Ingredient</h2>
+
+
+<div class="form-horizontal">
+
+    <hr />
+    <div class="form-group">
+
+        <table class="table table-responsive" style="width:100%">
+            <tr>
+                <th style="width:10%">
+                    Meals ID
+                </th>
+                <th style="width:10%">
+                    Meal
+                </th>
+                <th style="width:80%">
+                    Drink Alternate
+                </th>
+            </tr>
+            @if (Model != null && Model.Tables != null)
+            {
+                foreach (DataRow row in Model.Tables[0].Rows)
+                {
+                    <tr>
+                        <td>
+                            @row["id"]
+                        </td>
+                        <td>
+                            @row["mealname"]
+                        </td>
+                        <td>
+                            @row["recipe"]
+                        </td>
+                    </tr>
+                }
+            }
+
+            </table>
+        
+    </div>
+</div> 

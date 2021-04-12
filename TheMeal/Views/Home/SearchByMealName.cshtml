@@ -1,0 +1,47 @@
+﻿@model TheMeal.Models.MealsCollection
+
+@{
+    ViewBag.Title = "Search By Meal Name";
+}
+
+<h2>Search By Meal Name</h2>
+
+
+<div class="form-horizontal">
+
+    <br />
+    <div class="form-group">
+
+        <table class="table table-responsive" style="width:100%">
+            <tr>
+                <th style="width:10%">
+                    Meals ID
+                </th>
+                <th style="width:10%">
+                    Meal
+                </th>
+                <th style="width:80%">
+                    Instructions
+                </th>
+            </tr>
+            @if (Model != null && Model.meals!=null)
+            {
+                foreach (var item in Model.meals.Where(item => item != null))
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.idMeal)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.strMeal)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.strInstructions)
+                        </td>
+                    </tr>
+                }
+            }
+
+            </table>
+    </div>
+</div> 
